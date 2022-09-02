@@ -30,7 +30,10 @@ class MemberServiceMockWithH2Test {
 
   @BeforeAll
   public static void setupData(@Autowired MemberRepository member_Repository){
+
+
     memberRepository = member_Repository;
+    //memberRepository.deleteAll();
     List<Member> members = List.of(
             new Member("m1", "pw", "m1@a.dk", "aa", "aaa", "aaaa", "aaaa", "1234"),
             new Member("m2", "pw", "mm@a.dk", "bb", "bbb", "bbbb", "bbbb", "1234")

@@ -23,13 +23,12 @@ public class Car {
 
   @Column(length = 50,nullable = false)
   private String brand;
-
+  
   @Column(length= 50, nullable = false)
   private String model;
 
   double pricePrDay;
 
-  //Best discount price (percent for pricePrDay) an admin can offer
   double bestDiscount;
 
   @CreationTimestamp
@@ -38,4 +37,11 @@ public class Car {
   @UpdateTimestamp
   LocalDateTime edited;
 
+  public Car(int id, String brand, String model, double pricePrDay, double bestDiscount) {
+    this.id = id;
+    this.brand = brand;
+    this.model = model;
+    this.pricePrDay = pricePrDay;
+    this.bestDiscount = bestDiscount;
+  }
 }

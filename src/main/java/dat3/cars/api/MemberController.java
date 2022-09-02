@@ -18,15 +18,12 @@ public class MemberController {
     this.memberService = memberService;
   }
 
-  //Security --> Non Authenticated
-  //@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-  @PostMapping // same as above when you are using @RestController
+  @PostMapping
   public MemberResponse addMember(@RequestBody MemberRequest body) {
     return memberService.addMember(body);
   }
 
 
-  //Security Admin, but when using security whe can get the username for the "logged in" user and let him edit him self
   @PutMapping("/{username}")
   public ResponseEntity<Boolean> editMember(@RequestBody MemberRequest body, @PathVariable String username){
     memberService.editMember(body,username);
