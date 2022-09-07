@@ -22,7 +22,7 @@ public class CarRequest {
     LocalDateTime edited;
 
     public static Car getCarEntity(CarRequest c){
-        return new Car(c.getId(),c.getBrand(),c.getModel(), c.getPricePrDay(), c.getBestDiscount(), c.getCreated(),c.getEdited());
+        return new Car(c.getId(),c.getBrand(),c.getModel(), c.getPricePrDay(), c.getBestDiscount());
     }
 
     public CarRequest(Car c) {

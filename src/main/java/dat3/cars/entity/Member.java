@@ -6,13 +6,19 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
+// Lombok Start
 @Getter
 @Setter
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+//Lombok End
+
 @Entity
 public class Member extends UserWithRoles {
 
@@ -36,6 +42,14 @@ public class Member extends UserWithRoles {
 
   private boolean approved;
   private int ranking;
+
+  @OneToMany(mappedBy = "member")
+  private List<Reservation> reservations = new ArrayList<>();
+
+  public void addReservation(Reservation res) {
+    reservations.add(res);
+    //res.setMember(this);
+  }
 
   public Member(String user, String password, String email, String firstName, String lastName, String street, String city, String zip) {
     super(user, password, email);
