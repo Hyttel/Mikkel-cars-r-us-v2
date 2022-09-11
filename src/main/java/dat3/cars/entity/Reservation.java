@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 // Lombok Start
 @Getter
@@ -28,10 +29,10 @@ public class Reservation {
     Car car;
 
     @CreationTimestamp
-    LocalDate reservationDate;
-    LocalDate rentalDate;
+    LocalDateTime reservationDate;
+    String rentalDate;
 
-    public Reservation(Member member, Car car, LocalDate rentalDate) {
+    public Reservation(Member member, Car car, String rentalDate) {
         this.member = member;
         this.car = car;
         this.rentalDate = rentalDate;

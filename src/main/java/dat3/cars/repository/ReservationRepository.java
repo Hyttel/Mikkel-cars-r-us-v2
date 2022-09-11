@@ -7,5 +7,5 @@ import java.time.LocalDate;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
-    boolean existsByCar_IdAAndAndRentalDate(int carId, LocalDate date);
+    boolean existsByCar_IdAndRentalDate(int carId, String date);
 }

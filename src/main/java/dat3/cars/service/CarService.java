@@ -48,8 +48,6 @@ public class CarService {
         car.setModel(body.getModel());
         car.setPricePrDay(body.getPricePrDay());
         car.setBestDiscount(body.getBestDiscount());
-        car.setCreated(body.getCreated());
-        car.setEdited(body.getEdited());
     }
 
     public List<CarResponse> getCars() {
@@ -62,6 +60,10 @@ public class CarService {
 
     public void deleteCarById(int id) {
         carRepository.deleteById(id);
+    }
+
+    public void save(Car car){
+        carRepository.save(car);
     }
 
     public CarResponse findCarById(@PathVariable int id) {
